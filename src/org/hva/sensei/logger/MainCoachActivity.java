@@ -502,7 +502,7 @@ public class MainCoachActivity extends FragmentActivity implements
 		}, tekst_ms + pause_ms);
 	}
 
-	private boolean activateStimulus(int stimulus_type, long stimulus_ms) {
+	private boolean activateStimulus(final int stimulus_type, final long stimulus_ms) {
 		switch (stimulus_type) {
 		case BLIJFT_GELIJK:
 			vibrator.vibrate(stimulus_ms);
@@ -510,6 +510,13 @@ public class MainCoachActivity extends FragmentActivity implements
 			break;
 		case GA_ZACHTER:
 			vibrate(255, 0, (int)stimulus_ms);
+//			final Handler handler = new Handler();
+//			handler.postDelayed(new Runnable() {
+//				@Override
+//				public void run() {
+//					vibrate(255, 0, (int)stimulus_ms);
+//				}
+//			}, stimulus_ms + 200);
 			break;
 		case GA_HARDER:
 			vibrate(0, 255, (int)stimulus_ms);
